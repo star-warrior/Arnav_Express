@@ -1,0 +1,12 @@
+#windy {
+    height: 80vh;
+}
+
+body {
+    background: red;
+}
+
+form {
+    height: 300px;
+    padding: 30px;
+}

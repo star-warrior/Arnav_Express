@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windy</title>
+
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+     <link rel="stylesheet" href="/css/map.css">
+  </head>
+  <body>
+    <div id="windy"></div>
+
+    <form action="/find" method="post">
+      <input type="text" name="place">
+      <button type="submit">Search</button>
+    </form>
+
+    <% if (locals.lat) { %>
+     <p class="lat"> <%= lat %> </p>
+     <p class="lon"> <%= lon %> </p>
+     <p class="place"> <%= place %></p>
+    <% } else { %>
+      <p>Please Enter Valid City</p>
+    <% } %> 
+
+    <script src="/js/index.js"></script>
+  </body>
+</html>
