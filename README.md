@@ -1,5 +1,14 @@
 # SIH-2024 Project
 
+## How to start the repo
+
+1. Have nodejs installed on your pc
+2. create a openweathermap Map Forecast api
+3. Add a .env file, create a OPM_API variable and insert api key init
+4. ``` npm i ```
+5. ``` npm run dev ``` or ``` node server.js ```
+6. The filw will run on localhost:3000
+   
 ## PS Statement: 1656
 
 ## Project Statement: 
