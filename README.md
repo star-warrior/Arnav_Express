@@ -8,6 +8,12 @@
 4. ``` npm i ```
 5. ``` npm run dev ``` or ``` node server.js ```
 6. The filw will run on localhost:3000
+
+## How to Use the Website
+
+1. Search for any city with a beachline in india.
+2. (It must be a city, there will be no results if you put in state name)
+3. It will shsow you the results in the interactive map.
    
 ## PS Statement: 1656
 
