@@ -1,0 +1,5 @@
+background: #fafafa
+primary: #78B3CE
+secondary: #548590
+text: black
+accent: #F96E2A

@@ -2,11 +2,12 @@ let latitude;
 let longitude;
 let place;
 
-window.onload = () => {
+window.onload = async () => {
 
-  setTimeout(() => {
+  await setTimeout(async () => {
     console.log("Loaded");
     if (document.querySelector('.lat') == null) {
+      
       //? TO find Users current Location
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -41,6 +42,7 @@ window.onload = () => {
 
       // Put additional console output
       verbose: true,
+      // particlesAnim: 'off',
 
       // Optional: Initial state of the map
       lat: latitude,
@@ -49,28 +51,80 @@ window.onload = () => {
       maxZoom: 1000
     };
 
-    // Initialize Windy API
-    windyInit(options, windyAPI => {
-      // windyAPI is ready, and contain 'map', 'store',
-      // 'picker' and other usefull stuff
-      const { map } = windyAPI;
+    await windyInit(options, windyAPI => {
+      const { map, picker, utils, broadcast, store } = windyAPI;
+      // All the params are stored in windyAPI.store
 
-      var marker = L.marker([latitude, longitude]).addTo(map);
+      addMarker(latitude,longitude,map)
+      addCircle(latitude,longitude,'green','cyan',5000,map)
 
-      var circle = L.circle([latitude, longitude], {
-        color: 'red',
-        fillColor: 'blue',
-        fillOpacity: 0.5,
-        radius: 5000
-      }).addTo(map);
+      picker.on('pickerOpened', ({ lat, lon, values, overlay }) => {
+        // -> 48.4, 14.3, [ U,V, ], 'wind'
+        console.log('opened', lat, lon, values, overlay);
 
-      // .map is instance of Leaflet map
+        const windObject = utils.wind2obj(values);
+        console.log(windObject);
+      });
 
+      picker.on('pickerClosed', () => {
+        // picker was closed
+        console.log("Picker CLosed");
+      });
+
+      store.on('pickerLocation', ({ lat, lon }) => {
+        console.log(lat, lon);
+
+        const { values, overlay } = picker.getParams();
+        console.log('location changed', lat, lon, values, overlay);
+
+        latitude = lat;
+        longitude = lon;
+      });
+
+      // Wait since wather is rendered
+      broadcast.once('redrawFinished', () => {
+        // Opening of a picker (async)
+        console.log("Redraw Finished");
+        picker.open({ lat: latitude, lon: longitude });
+        addCircle(latitude,longitude,'red','cyan',5000,map)
+      });
+
+      const levels = store.getAllowed('availLevels');
+      console.log(store.get('availLevels'));
+      // levels = ['surface', '850h', ... ]
+      // Getting all available values for given key
+
+      let i = 0;
+      setInterval(() => {
+        i = i === levels.length - 1 ? 0 : i + 1;
+
+        // Changing Windy params at runtime
+        store.set('level', levels[i]);
+      }, 500);
+
+      // Observing change of .store value
+      store.on('level', level => {
+        console.log(`Level was changed: ${level}`);
+      });
     });
   }, 1000);
 
 }
 
+function addMarker (lat,lon,map) {
+  console.log("Marker");
+  var marker = L.marker([lat, lon]).addTo(map);
+}
+
+function addCircle(lat,lon,color,fill,rad,map) {
+  console.log("Circle");
+  var circle = L.circle([lat, lon], {
+    color: color,
+    fillColor: fill,
+    fillOpacity: 0.5,
+    radius: rad
+  }).addTo(map);
+}
 
 
 
