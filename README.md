@@ -1,6 +1,21 @@
 # SIH-2024 Project
 
-## PS Statement: 1656
+## How to start the repo
+
+1. Have nodejs installed on your pc
+2. create a openweathermap Map Forecast api
+3. Add a .env file, create a OPM_API variable and insert api key init
+4. ``` npm i ```
+5. ``` npm run dev ``` or ``` node server.js ```
+6. The filw will run on localhost:3000
+
+## How to Use the Website
+
+1. Search for any city with a beachline in india.
+2. (It must be a city, there will be no results if you put in state name)
+3. It will shsow you the results in the interactive map.
+   
+## Problem Statement No: 1656
 
 ## Project Statement: 
 
