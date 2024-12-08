@@ -47,7 +47,7 @@ window.onload = async () => {
       // Optional: Initial state of the map
       lat: latitude,
       lon: longitude,
-      zoom: 100,
+      zoom: 50,
       maxZoom: 1000
     };
 
