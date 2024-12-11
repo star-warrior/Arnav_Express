@@ -21,7 +21,7 @@ let place;
 let error = `Plz enter Valid City Name.`
 
 app.get('/' , (req,res) => {
-    res.render('map.ejs', {lat:lat, lon:lon , place: place , error:error})
+    res.render('index.ejs', {lat:lat, lon:lon , place: place , error:error})
 })
 
 app.post('/find' , async (req,res) => {
