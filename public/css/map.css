@@ -31,12 +31,12 @@ body {
     justify-content: space-between;
     max-height: 100%;
     max-width: 100vw;
-    padding: 30px 50px 0;
+    padding: 15px 50px 0;
 }
 
 #map {
     height: 100vh;
-    width: 37.5%; 
+    width: 50%; 
     margin-right: 36px;
 }
 
@@ -48,11 +48,11 @@ body {
 /*! Weather Data  */
 
 #data-box {
-    width: 62.5%;
+    width: 50%;
     display: grid;
-    grid-template-columns: 193px 193px 193px 193px 193px;
-    grid-template-rows: 45px 40px 110px 110px 110px 140px;
-    gap: 30px 36px;
+    grid-template-columns: 135px 135px 135px 135px;
+    grid-template-rows: 60px 60px 150px 120px 120px 100px;
+    gap: 20px 36px;
     color: var(--text-white);
     font-family: "Roboto", serif;
 }
@@ -74,7 +74,7 @@ hr {
 }
 
 .data p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--text-white-secondary);
 }
 
@@ -155,8 +155,48 @@ hr {
 
 #data-box .ocean-info {
     grid-row: 3/4;
-    grid-column: 2/-1;
+    grid-column: 2/4;
     background-color: var(--accent) !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.ocean-info p {
+    margin-bottom: 15px;
+}
+
+.ocean-info .ocean-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 100%;
+}
+
+.ocean-data h5 {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.ocean-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*! ALERT BOX  */
+
+#data-box .alert {
+    grid-column: 4/5;
+    grid-row: 3/4;
+}
+
+
+/* AQI box  */
+
+#data-box .aqi {
+    grid-column: 4/5;
+    grid-row: 4/5;
 }
 
 /* Temp Box  */
@@ -166,32 +206,40 @@ hr {
     grid-column: 1/2;
 }
 
-/* Humidity Box  */
-#data-box .humid {
-    grid-row: 4/5;
-    grid-column: 2/3;
-}
-
-/* feels temp box  */
-
+/* feels like Box  */
 #data-box .feels {
     grid-row: 4/5;
-    grid-column: 3/4;
+    grid-column: 2/3;
 }
 
 /* Wind Box  */
 
 #data-box .wind {
-    grid-row: 5/6;
-    grid-column: 1/2;
+    grid-row: 4/5;
+    grid-column: 3/4;
 }
 
 /* uv index  */
 
 #data-box .uvi {
     grid-row: 5/6;
-    grid-column: 2/3;
+    grid-column: 4/-1;
 }
+
+/* Pressure Box  */
+
+#data-box .pressure {
+
+}
+
+/* humid box  */
+
+#data-box .humid {
+    grid-row: 5/6;
+    grid-column: 3/4;
+}
+
+
 
 /* Description Box  */
 
