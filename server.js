@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 var lat,lon,place,weather_data;
 
 weather_data = {
+    city_name: "",
     weather_icon: "",
     aqi: "",
     temp: "",
@@ -61,12 +62,13 @@ app.post('/find' ,async (req,res) => {
         lat = location.data[0].lat;
         lon = location.data[0].lon;
         place = location.data[0].name;
+        weather_data.city_name = place;
     } catch (error) {
         return error
     }
     // console.log(lat,lon);
     await weather_owm(lat,lon);
-    await tomorrow_weather(place);
+    await tomorrow_weather(lat,lon);
     await weather_aqi(lat,lon);
     await marine(lat,lon);
     console.log(weather_data);
@@ -74,7 +76,7 @@ app.post('/find' ,async (req,res) => {
     if(weather_data.ocean.swell === 'nullm') {
         res.redirect("/")
     } else {
-        res.render('map.ejs' , {weather: weather_data});
+        res.render('map.ejs' , {weather: weather_data ,lat: lat ,lon:lon, place:place});
     }
     
 })

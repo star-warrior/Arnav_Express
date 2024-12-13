@@ -6,9 +6,9 @@ import weather_data from "../server.js";
 
 const TOMORROW_API = process.env.TOMORROW_API
 
-async function tomorrow_weather(place) {
+async function tomorrow_weather(lat,lon) {
     try {
-        const response = await axios.get(`https://api.tomorrow.io/v4/weather/realtime?apikey=${TOMORROW_API}&location=${place}&timezone=Asia/kolkata`)
+        const response = await axios.get(`https://api.tomorrow.io/v4/weather/realtime?apikey=${TOMORROW_API}&location=${lat},${lon}&timezone=Asia/kolkata`)
         const data =  response.data;
         // console.log(data);
 

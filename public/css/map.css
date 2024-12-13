@@ -228,7 +228,7 @@ hr {
 
 /* Pressure Box  */
 
-#data-box .pressure {
+#data-box .visibility {
 
 }
 
@@ -257,4 +257,10 @@ hr {
     color: var(--text-dark);
 }
 
+/*! Residual Data  */
 
+.res-data {
+    height: 0;
+    width: 0;
+    z-index: -999;
+}
