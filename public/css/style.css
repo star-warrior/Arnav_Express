@@ -178,6 +178,11 @@ body {
   height: 25px;
 }
 
+h3.error {
+  color: var(--accent) !important;
+  margin-bottom: 0;
+}
+
 /* Picture Credit Div  */
 
 #credits {

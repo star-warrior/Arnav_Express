@@ -13,6 +13,7 @@ import weather_owm from "./modules/weather_owm.mjs";
 import tomorrow_weather from "./modules/tomorrow_weather.mjs";
 import weather_aqi from "./modules/weather_aqi.mjs";
 import marine from "./modules/marine.mjs";
+// import gemini_prompt from "./modules/gemini_prompt.mjs";
 
 const app = e();
 const OWM_API = process.env.OWM_API
@@ -42,12 +43,13 @@ weather_data = {
         swell: "",
         wave: "",
         m_hazard: "Low"
-    }
+    },
+    beach_desc: ""
 }
 
 export default weather_data;
 
-let error = `The given City does not have a beach.`
+let error = ``
 
 app.get('/' , (req,res) => {
     res.render('index.ejs' , {error:error})
@@ -71,14 +73,15 @@ app.post('/find' ,async (req,res) => {
     await tomorrow_weather(lat,lon);
     await weather_aqi(lat,lon);
     await marine(lat,lon);
+    // await gemini_prompt(place)
     console.log(weather_data);
 
     if(weather_data.ocean.swell === 'nullm') {
+        error = `The given City does not have a beach.`;
         res.redirect("/")
     } else {
-        res.render('map.ejs' , {weather: weather_data ,lat: lat ,lon:lon, place:place});
+        res.render('map.ejs' , {weather: weather_data ,lat: lat ,lon:lon, place:place });
     }
-    
 })
 
 app.listen(port , () => {

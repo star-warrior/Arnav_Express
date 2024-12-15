@@ -9,7 +9,7 @@ const OWM = process.env.OWM_API;
 async function weather_owm(lat,lon) {
     // console.log(lat,lon);
     try {
-       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OWM}`);
+       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${OWM}`);
        const data = response.data;
     //    console.log(data);
 
