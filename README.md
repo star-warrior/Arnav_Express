@@ -31,7 +31,6 @@ Development of a mobile application to provide recreational suitability informat
 
 ### Technologies Used
 
-
 ![HTML](./public/readme/html.png "HTML") 
 ![css](./public/readme/text.png "css")
 ![Java Scirpt](./public/readme/js.png "JavaScript")
@@ -44,6 +43,13 @@ Development of a mobile application to provide recreational suitability informat
 
 
 # TODO:
+
+### Main TODOs:
+
+1. Format Gemini to Find and Format Prompt to generate accurate description about the given Beach
+2. Find Photos for each beach dynamically.
+
+### Minor TODOs:
 
 1. Incorporate INCOIS Data Anyhow.
 2. Learn to use arcGIS portal.
