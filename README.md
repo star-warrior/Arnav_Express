@@ -3,19 +3,19 @@
 ## How to start the repo
 
 1. Have nodejs installed on your pc
-2. create a openweathermap Map Forecast api
-3. Add a .env file, create a OPM_API variable and insert api key init
-4. ``` npm i ```
-5. ``` npm run dev ``` or ``` node server.js ```
-6. The filw will run on localhost:3000
+2. create a openweathermap Map Forecast Free api
+3. Create a tomorrow.io free api and gemini api
+4. Add a .env file, create a OWM_API, TOMORROW_API AND GEMINI_API variable and insert api key accordingly
+5. ``` npm i ```
+6. ``` npm run dev ``` or ``` node server.js ```
+7. The file will run on localhost:3000
 
 ## How to Use the Website
 
 1. Search for any city with a beachline in india.
 2. (It must be a city, there will be no results if you put in state name)
 3. It will shsow you the results in the interactive map.
-   
-## Problem Statement No: 1656
+4. If the beach does not exist for the given beach, it will take you back to home page.
 
 ## Project Statement: 
 
@@ -29,7 +29,19 @@ Development of a mobile application to provide recreational suitability informat
 
 ## Rep Description
 
-Project created with Leaflet and Windy Currently
+### Technologies Used
+
+
+![HTML](./public/readme/html.png "HTML") 
+![css](./public/readme/text.png "css")
+![Java Scirpt](./public/readme/js.png "JavaScript")
+![NodeJS](./public/readme/node-js.png "Node JS")
+![express](./public/readme/icons8-express-js-64.png "Express")
+![EJS](./public/readme/icons8-ejs-64.png "EJS")
+![Github](./public/readme/icons8-github-64.png "Github")
+![Figma](./public/readme/icons8-figma-64.png "Figma")
+
+
 
 # TODO:
 
