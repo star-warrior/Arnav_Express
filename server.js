@@ -77,7 +77,7 @@ app.post('/find' ,async (req,res) => {
     console.log(weather_data);
 
     if(weather_data.ocean.swell === 'nullm') {
-        error = `The given City does not have a beach.`;
+        error = `The given city does not have a beach.`;
         res.redirect("/")
     } else {
         res.render('map.ejs' , {weather: weather_data ,lat: lat ,lon:lon, place:place });
