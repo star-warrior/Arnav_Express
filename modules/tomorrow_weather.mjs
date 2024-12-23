@@ -17,7 +17,7 @@ async function tomorrow_weather(lat,lon) {
         weather_data.uvi = data.data.values.uvIndex;
         weather_data.visibility = (data.data.values.visibility)
     } catch (error) {
-        console.log(error.code);
+        console.log(error);
     }
 }
 

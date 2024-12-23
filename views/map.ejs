@@ -25,184 +25,189 @@
 
         <% if (locals.weather) { %>
 
-          <div class="city-name">
-            <h1> <%= weather.city_name %></h1>
-            <hr />
-          </div>
-  
-          <div class="data weather">
-            <p>weather</p>
-            <h3><img src="https://openweathermap.org/img/wn/<%= weather.weather_icon %>@2x.png" alt="Weather Icon"></h3>
-          </div>
-  
-          <div class="data ocean-info">
-            <div class="ocean-data">
-              <div class="ocean-item">
-                <p>
-                  Wave <br />
-                  Height
-                </p>
-                <h4><%= weather.ocean.wave %></h4>
-              </div>
-              <div class="ocean-item">
-                <p>
-                  Swell <br />
-                  Height
-                </p>
-                <h4><%= weather.ocean.swell %></h4>
-              </div>
-              <div class="ocean-item">
-                <p>
-                  Marine<br />
-                  Hazards
-                </p>
-                <h4><%= weather.ocean.m_hazard %></h4>
-              </div>
+        <div class="city-name">
+          <h1><%= weather.city_name %></h1>
+          <hr />
+        </div>
+
+        <div class="data weather">
+          <p>weather</p>
+          <h3>
+            <img
+              src="https://openweathermap.org/img/wn/<%= weather.weather_icon %>@2x.png"
+              alt="Weather Icon"
+            />
+          </h3>
+          <h4><%= weather.weather_desc %></h4>
+        </div>
+
+        <div class="data ocean-info">
+          <div class="ocean-data">
+            <div class="ocean-item wave">
+              <p>
+                Wave <br />
+                Height
+              </p>
+              <h4> <span><%= weather.ocean.wave %></span>m</h4>
+            </div>
+            <div class="ocean-item swell">
+              <p>
+                Swell <br />
+                Height
+              </p>
+              <h4><%= weather.ocean.swell %>m</h4>
+            </div>
+            <div class="ocean-item">
+              <p>
+                Marine<br />
+                Hazards
+              </p>
+              <h4><%= weather.ocean.m_hazard %></h4>
             </div>
           </div>
-          
+        </div>
 
-          <!--TODO Check Parameters if the beach is safe or not  -->
+        <!--TODO Check Parameters if the beach is safe or not  -->
 
-          <div class="data alert">
-            <p>ALERT</p>
-            <h3>data</h3>
-          </div>
-  
-          <div class="data aqi">
-            <p>AQI</p>
-            <h3><%= weather.aqi %></h3>
-          </div>
-  
-          <div class="data temp">
-            <p>Temp</p>
-            <h3><%= weather.temp %></h3>
-          </div>
-          <div class="data feels">
-            <p>Feels Like</p>
-            <h3><%= weather.feels_like %></h3>
-          </div>
-          <div class="data humid">
-            <p>Humidity</p>
-            <h3><%= weather.humid %> </h3>
-          </div>
-          <div class="data wind">
-            <p>Wind speed</p>
-            <h3><%= weather.wind_speed %></h3>
-          </div>
-          <div class="data uvi">
-            <p>UV Index</p>
-            <h3><%= weather.uvi%></h3>
-          </div>
-          <div class="data current-rain">
-            <p>Rain</p>
-            <h3><%= weather.rain%>%</h3>
-          </div>
-  
-          <div class="data visibility">
-            <p>Visibility</p>
-            <h3><%= weather.visibility %>km</h3>
-          </div>
+        <div class="data alert">
+          <p>ALERT</p>
+          <h3>data</h3>
+        </div>
 
-          <div class="data desc">
-            <p>Desc</p>
-            <h3><%= weather.weather_desc %></h3>
-          </div>
+        <div class="data aqi">
+          <p>AQI</p>
+          <h3><%= weather.aqi.aqi %></h3>
+          <h4><%= weather.aqi.category %></h4>
+        </div>
+
+        <div class="data temp">
+          <p>Temp</p>
+          <h3><%= weather.temp %></h3>
+        </div>
+        <div class="data feels">
+          <p>Feels Like</p>
+          <h3><%= weather.feels_like %></h3>
+        </div>
+        <div class="data humid">
+          <p>Humidity</p>
+          <h3><%= weather.humid %></h3>
+        </div>
+        <div class="data wind">
+          <p>Wind speed</p>
+          <h3><%= weather.wind_speed %></h3>
+        </div>
+        <div class="data uvi">
+          <p>UV Index</p>
+          <h3><%= weather.uvi%></h3>
+        </div>
+        <div class="data current-rain">
+          <p>Rain</p>
+          <h3><%= weather.rain%>%</h3>
+        </div>
+
+        <div class="data visibility">
+          <p>Visibility</p>
+          <h3><%= weather.visibility %>km</h3>
+        </div>
+
+        <div class="data desc">
+          <p>Desc</p>
+          <h3></h3>
+        </div>
 
         <% } else { %>
 
-          <div class="city-name">
-            <h1>City Name</h1>
-            <hr />
-          </div>
-  
-          <div class="data weather">
-            <p>weather</p>
-            <h3>icon</h3>
-          </div>
-  
-          <div class="data ocean-info">
-            <div class="ocean-data">
-              <div class="ocean-item">
-                <p>
-                  Wave <br />
-                  Height
-                </p>
-                <h4>Data</h4>
-              </div>
-              <div class="ocean-item">
-                <p>
-                  Swell <br />
-                  Height
-                </p>
-                <h4>Data</h4>
-              </div>
-              <div class="ocean-item">
-                <p>
-                  Marine <br />
-                  Hazards
-                </p>
-                <h4>Data</h4>
-              </div>
+        <div class="city-name">
+          <h1>City Name</h1>
+          <hr />
+        </div>
+
+        <div class="data weather">
+          <p>weather</p>
+          <h3>icon</h3>
+        </div>
+
+        <div class="data ocean-info">
+          <div class="ocean-data">
+            <div class="ocean-item">
+              <p>
+                Wave <br />
+                Height
+              </p>
+              <h4>Data</h4>
+            </div>
+            <div class="ocean-item">
+              <p>
+                Swell <br />
+                Height
+              </p>
+              <h4>Data</h4>
+            </div>
+            <div class="ocean-item">
+              <p>
+                Marine <br />
+                Hazards
+              </p>
+              <h4>Data</h4>
             </div>
           </div>
-  
-          <div class="data alert">
-            <p>ALERT</p>
-            <h3>data</h3>
-          </div>
-  
-          <div class="data aqi">
-            <p>AQI</p>
-            <h3>data</h3>
-          </div>
-  
-          <div class="data temp">
-            <p>Temp</p>
-            <h3>Temp</h3>
-          </div>
-          <div class="data feels">
-            <p>Feels Like</p>
-            <h3>Temp</h3>
-          </div>
-          <div class="data humid">
-            <p>Humidity</p>
-            <h3>Temp</h3>
-          </div>
-          <div class="data wind">
-            <p>Wind speed</p>
-            <h3>Temp</h3>
-          </div>
-          <div class="data uvi">
-            <p>UV Index</p>
-            <h3>Temp</h3>
-          </div>
-          <div class="data current-rain">
-            <p>Rain</p>
-            <h3>Temp</h3>
-          </div>
-  
-          <div class="data pressure">
-            <p>Pressure</p>
-            <h3>Temp</h3>
-          </div>
-          <div class="data desc">
-            <p>Desc</p>
-            <h3>Temp</h3>
-          </div>
+        </div>
+
+        <div class="data alert">
+          <p>ALERT</p>
+          <h3>data</h3>
+        </div>
+
+        <div class="data aqi">
+          <p>AQI</p>
+          <h3>data</h3>
+        </div>
+
+        <div class="data temp">
+          <p>Temp</p>
+          <h3>Temp</h3>
+        </div>
+        <div class="data feels">
+          <p>Feels Like</p>
+          <h3>Temp</h3>
+        </div>
+        <div class="data humid">
+          <p>Humidity</p>
+          <h3>Temp</h3>
+        </div>
+        <div class="data wind">
+          <p>Wind speed</p>
+          <h3>Temp</h3>
+        </div>
+        <div class="data uvi">
+          <p>UV Index</p>
+          <h3>Temp</h3>
+        </div>
+        <div class="data current-rain">
+          <p>Rain</p>
+          <h3>Temp</h3>
+        </div>
+
+        <div class="data pressure">
+          <p>Pressure</p>
+          <h3>Temp</h3>
+        </div>
+        <div class="data desc">
+          <p>Desc</p>
+          <h3>Temp</h3>
+        </div>
 
         <% } %>
 
         <div class="res-data">
           <% if (locals.lat) { %>
-            <p class="lat"> <%= lat %> </p>
-            <p class="lon"> <%= lon %> </p>
-            <p class="place"> <%= place %></p>
-           <% } else { %>
-             <p>Please Enter Valid City</p>
-           <% } %> 
+          <p class="lat"><%= lat %></p>
+          <p class="lon"><%= lon %></p>
+          <p class="place"><%= place %></p>
+          <% } else { %>
+          <p>Please Enter Valid City</p>
+          <% } %>
         </div>
-
       </div>
     </section>
 
@@ -217,6 +222,9 @@
       
     </section> -->
 
+    <script>
+      
+    </script>
     <script src="/js/map.js"></script>
   </body>
 </html>

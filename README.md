@@ -1,4 +1,4 @@
-# SIH-2024 Project
+# Arnav Express
 
 ## How to start the repo
 

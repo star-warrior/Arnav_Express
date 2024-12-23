@@ -11,7 +11,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 import weather_owm from "./modules/weather_owm.mjs";
 import tomorrow_weather from "./modules/tomorrow_weather.mjs";
-import weather_aqi from "./modules/weather_aqi.mjs";
+// import weather_aqi from "./modules/weather_aqi.mjs";
+import aqi_test from "./modules/aqi_test.mjs";
 import marine from "./modules/marine.mjs";
 // import gemini_prompt from "./modules/gemini_prompt.mjs";
 
@@ -29,7 +30,10 @@ var lat,lon,place,weather_data;
 weather_data = {
     city_name: "",
     weather_icon: "",
-    aqi: "",
+    aqi: {
+        aqi: "",
+        category: ""
+    },
     temp: "",
     feels_like: "",
     wind_speed: "",
@@ -71,12 +75,12 @@ app.post('/find' ,async (req,res) => {
     // console.log(lat,lon);
     await weather_owm(lat,lon);
     await tomorrow_weather(lat,lon);
-    await weather_aqi(lat,lon);
+    await aqi_test(lat,lon);
     await marine(lat,lon);
     // await gemini_prompt(place)
     console.log(weather_data);
 
-    if(weather_data.ocean.swell === 'nullm') {
+    if(weather_data.ocean.wave === 'nullm') {
         error = `The given city does not have a beach.`;
         res.redirect("/")
     } else {

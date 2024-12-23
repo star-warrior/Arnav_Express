@@ -13,6 +13,8 @@ async function weather_aqi(lat,lon) {
 
         weather_data.aqi = data;
 
+        // if(data = )
+
         console.log(data);
         console.log("AQI Call Made");
     } catch (error ) {

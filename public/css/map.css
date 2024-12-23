@@ -12,7 +12,7 @@
     --background-secondary: #e4faff;
     --secondary-color: #548590;
     --text-dark: black;
-    --text-dark-secondary: #6e6e6e;
+    --text-dark-secondary: #313131;
     --text-white: white;
     --text-white-secondary: #fff0f0;
     --accent: #F96E2A;
@@ -69,7 +69,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     border-radius: 25px;
     padding-top: 15px;
 }
@@ -152,11 +152,19 @@ hr {
     grid-column: 1/2;
 }
 
+#data-box .weather img {
+    height: 75px;
+}
+
+#data-box .weather h3 {
+    margin: 0 !important;
+}
+
 /* ocean info box  */
 
 #data-box .ocean-info {
     grid-row: 3/4;
-    grid-column: 2/4;
+    grid-column: 3/5;
     background-color: var(--accent) !important;
     display: flex;
     flex-direction: column;
@@ -192,16 +200,36 @@ hr {
 /*! ALERT BOX  */
 
 #data-box .alert {
-    grid-column: 4/5;
+    grid-column: 2/3;
     grid-row: 3/4;
 }
 
+.alert h3 {
+    width: 80%;
+    text-wrap: wrap;
+    text-align: center;
+}
 
 /* AQI box  */
 
 #data-box .aqi {
     grid-column: 4/5;
     grid-row: 4/5;
+    background:  none !important;
+    border: 2px solid var(--primary-color);
+}
+
+#data-box .aqi p {
+    color: var(--text-dark-secondary);
+}
+
+#data-box .aqi h3 {
+    color: var(--text-dark);
+}
+
+#data-box .aqi h4 {
+    color: #2e2e2e;
+    font-weight: 400;
 }
 
 /* Temp Box  */

@@ -11,8 +11,8 @@ async function marine(lat,lon) {
 
         const unit = data.current_units.wave_height
 
-        weather_data.ocean.swell = data.current.swell_wave_height + unit
-        weather_data.ocean.wave = data.current.wave_height + unit
+        weather_data.ocean.swell = data.current.swell_wave_height? this : 0
+        weather_data.ocean.wave = data.current.wave_height
     } catch (error) {
         console.log(error);
         

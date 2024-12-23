@@ -7,7 +7,7 @@ window.onload = async () => {
   await setTimeout(async () => {
     console.log("Loaded");
     if (document.querySelector('.lat') == null) {
-      
+
       //? TO find Users current Location
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -55,8 +55,8 @@ window.onload = async () => {
       const { map, picker, utils, broadcast, store } = windyAPI;
       // All the params are stored in windyAPI.store
 
-      addMarker(latitude,longitude,map)
-      addCircle(latitude,longitude,'green','cyan',5000,map)
+      addMarker(latitude, longitude, map)
+      addCircle(latitude, longitude, 'green', 'cyan', 5000, map)
 
       picker.on('pickerOpened', ({ lat, lon, values, overlay }) => {
         // -> 48.4, 14.3, [ U,V, ], 'wind'
@@ -86,7 +86,7 @@ window.onload = async () => {
         // Opening of a picker (async)
         console.log("Redraw Finished");
         picker.open({ lat: latitude, lon: longitude });
-        addCircle(latitude,longitude,'red','cyan',5000,map)
+        addCircle(latitude, longitude, 'red', 'cyan', 5000, map)
       });
 
       const levels = store.getAllowed('availLevels');
@@ -111,12 +111,12 @@ window.onload = async () => {
 
 }
 
-function addMarker (lat,lon,map) {
+function addMarker(lat, lon, map) {
   console.log("Marker");
   var marker = L.marker([lat, lon]).addTo(map);
 }
 
-function addCircle(lat,lon,color,fill,rad,map) {
+function addCircle(lat, lon, color, fill, rad, map) {
   console.log("Circle");
   var circle = L.circle([lat, lon], {
     color: color,
@@ -126,8 +126,48 @@ function addCircle(lat,lon,color,fill,rad,map) {
   }).addTo(map);
 }
 
+// AQI COlor coding 
+
+let aqi = parseInt(document.querySelector(".aqi h3").textContent);
+let aqibox = document.querySelector(".data.aqi");
+
+if (aqi <= 50) { aqibox.style.border = "5px solid green"; }
+else if (aqi <= 100) { aqibox.style.border = "5px solid yellow"; }
+else if (aqi <= 150) { aqibox.style.border = "5px solid orange"; console.log("danger hu mei"); }
+else if (aqi <= 500) { aqibox.style.border = "5px solid Red"; console.log("Yanna"); }
+else if (aqi <= 300) { aqibox.style.border = "5px solid Maroon"; }
+else { document.querySelector(".data.aqi").style.border = "5px solid Brown"; }
 
 
+//! Final Alert Color According to wave height
+
+let waveHeight = parseFloat(document.querySelector(".data .wave h4 span").textContent);
+let alertBox = document.querySelector(".alert");
+
+let alert = document.querySelector(".alert h3")
+console.log(alert.textContent);
+
+if (waveHeight >= 0.0 && waveHeight <= 0.3) {
+  alert.textContent = "Ideal to Visit";
+  alertBox.style.background = "#007759"
+} else if (waveHeight > 0.3 && waveHeight <= 0.5) {
+  alert.textContent = "Safe to Visit";
+  alertBox.style.background = "green"
+} else if (waveHeight > 0.5 && waveHeight <= 1.2) {
+  alert.textContent = "Be Caution";
+  alertBox.style.background = "Yellow"
+} else if (waveHeight > 1.2 && waveHeight <= 2.0) {
+  alert.textContent = "Not reccommended";
+  alertBox.style.background = "Orange"
+} else if (waveHeight > 2.0 && waveHeight <= 3.0) {
+  alert.textContent = "Very Dangerous";
+  alertBox.style.background = "Red"
+} else if (waveHeight > 3.0) {
+  alert.textContent = "Hazardous";
+  alertBox.style.background = "maroon"
+} else {
+  alert.textContent = "Invalid: Check input";
+}
 
 
 
